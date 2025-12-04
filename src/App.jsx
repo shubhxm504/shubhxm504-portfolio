@@ -72,7 +72,10 @@ const ProjectModal = ({ project, isOpen, onClose, theme }) => {
       <div className={`relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl ${theme.bg} ${theme.text} shadow-2xl border ${theme.borderColor} animate-fade-in-up`}>
         
         {/* Modal Header Image */}
-        <div className={`relative h-48 sm:h-64 w-full overflow-hidden bg-gradient-to-br ${project.color}`}>
+        <div 
+          className={`relative w-full overflow-hidden bg-gradient-to-br ${project.color}`}
+          style={{ aspectRatio: project.width && project.height ? `${project.width}/${project.height}` : '16/9' }}
+        >
            {/* Close Button */}
           <button 
             onClick={onClose}
@@ -82,7 +85,11 @@ const ProjectModal = ({ project, isOpen, onClose, theme }) => {
           </button>
 
           {project.image ? (
-            <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-90" />
+            <img 
+                src={project.image} 
+                alt={project.title} 
+                className="w-full h-full object-cover opacity-90" 
+            />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center text-white/20">
               {/* Fallback Pattern for missing images */}
@@ -426,7 +433,9 @@ const Portfolio = () => {
       recognition: "Earned Google Recognition & $5K Cloud Credits",
       color: isDark ? "from-blue-500 to-indigo-500" : "from-blue-600 to-indigo-600",
       icon: <BrainCircuit size={48} />,
-      image: "/medhelper-thumbnail.jpg"
+      image: "/medhelper-thumbnail.jpg",
+      width: 2752,
+      height: 1536
     },
     {
       title: "Smart Campus IoT System",
@@ -438,7 +447,10 @@ const Portfolio = () => {
       metrics: "Cut repetitive task time by 25%",
       recognition: "1st Prize @ Mind's Eye Exhibition",
       color: isDark ? "from-emerald-500 to-teal-500" : "from-emerald-600 to-teal-600",
-      icon: <Server size={48} />
+      icon: <Server size={48} />,
+      image: "/smartcampus-thumbnail.png",
+      width: 2752, // Assuming same dimensions for now, can be adjusted
+      height: 1536
     }
   ];
 
@@ -1010,7 +1022,10 @@ const Portfolio = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className={`relative ${theme.cardInner} rounded-2xl overflow-hidden h-full flex flex-col backdrop-blur-md`}>
                     {/* Mock Image Gradient with Zoom Effect */}
-                    <div className={`h-48 w-full bg-gradient-to-br ${project.color} opacity-80 group-hover:opacity-100 transition-all duration-500 relative overflow-hidden`}>
+                    <div 
+                      className={`relative w-full overflow-hidden bg-gradient-to-br ${project.color}`}
+                      style={{ aspectRatio: project.width && project.height ? `${project.width}/${project.height}` : '16/9' }}
+                    >
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer" />
                     
                     {/* Updated Image Logic */}
