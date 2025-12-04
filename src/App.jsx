@@ -433,7 +433,7 @@ const Portfolio = () => {
       recognition: "Earned Google Recognition & $5K Cloud Credits",
       color: isDark ? "from-blue-500 to-indigo-500" : "from-blue-600 to-indigo-600",
       icon: <BrainCircuit size={48} />,
-      image: "/medhelper-thumbnail.jpg",
+      image: "/medhelper-thumbnail.png",
       width: 2752,
       height: 1536
     },
